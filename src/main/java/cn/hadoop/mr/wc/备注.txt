@@ -1,0 +1,11 @@
+运行
+1、java -cp wordcount.jar:...所有hadoop的依赖jar（很多）   cn.hadoop.mr.wc.WorkcountDriver  wordcount.jar  数据源目录  结果目录
+2、不用引用依赖，将所有依赖jar打入wordcount.jar中，运行    java   -jar  方式（需要导成rannable  jar 方式）
+3、推荐使用
+	hadoop    jar  wordcount.jar  cn.hadoop.mr.wc.WorkcountDriver    数据源目录      输出结果目录
+新建源目录：hadoop fs -mkdir -p /ls/wc/input。不能有输出目录，hadoop机制怕覆盖丢失数据
+hadoop jar  wordcount.jar cn.hadoop.mr.wc.WorkcountDriver   /ls/wc/input  /ls/wc/output
+
+yarn启动mr  application  manager启动maptask启动reducertask
+
+默认一个reducertask
